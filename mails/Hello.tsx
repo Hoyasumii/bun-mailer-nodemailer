@@ -1,11 +1,14 @@
 import * as React from "react";
+import { Tailwind, Button, Hr } from "@react-email/components";
 
 interface HelloProps {
   name: string;
 }
 
 export const Hello: React.FC<HelloProps> = ({ name }) => (
-  <div>
+  <Tailwind>
     <h1>Hello, {name}!</h1>
-  </div>
+    <Hr />
+    <p>Hello from Elysia 🦊</p>
+  </Tailwind>
 );

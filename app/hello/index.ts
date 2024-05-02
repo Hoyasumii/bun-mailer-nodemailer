@@ -1,13 +1,21 @@
-import { resender } from "@/core";
-import { Hello } from "@/mails";
-import { createElement } from "react";
 import Elysia from "elysia";
+import DTO from "./dto";
+import { HelloService } from "./hello.service";
 
+const service = new HelloService();
 const route = new Elysia({ prefix: "/hello" });
 
-route.get("/", async () => {
-  const request = await resender("Hub.me <onboarding@resend.dev>", ["alanreisanjo@gmail.com"], "Teste", createElement(Hello, { name: "Alan" }));
-  return request
-})
+route.post(
+  "/",
+  async ({ body, set }) => {
+    const { target, name } = body as { target: string; name: string };
+    const { data, status } = await service.hello(target, name);
+    set.status = status;
+    return data;
+  },
+  {
+    body: DTO.Body.hello,
+  }
+);
 
 export default route;

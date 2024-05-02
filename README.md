@@ -1,15 +1,10 @@
-# bun-mailer
+# Bun Mailer
 
-To install dependencies:
+- O que é?
+  > Api simples feita em Elysia, no intuito de enviar emails através do Resend
 
-```bash
-bun install
-```
+---
 
-To run:
+### Tecnologias Usadas
 
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.1.4. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+[![My Skills](https://skillicons.dev/icons?i=ts,bun,elysia,react,tailwindcss)](https://skillicons.dev)
