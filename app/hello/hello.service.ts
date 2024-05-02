@@ -10,7 +10,7 @@ export class HelloService {
       return responseError();
     }
     const request = await resender(
-      "Hub.me <onboarding@resend.dev>",
+      "Mailer <onboarding@resend.dev>",
       [target],
       "Hello Elysia",
       createElement(Hello, { name })
