@@ -1,0 +1,22 @@
+{
+  "name": "bun-mailer",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^1.0.2",
+    "@elysiajs/swagger": "^1.0.4",
+    "elysia": "^1.0.15",
+    "resend": "^3.2.0",
+    "zod": "^3.23.5"
+  },
+  "scripts": {
+    "start:dev": "bun run --watch app/index.ts",
+    "start": "bun run app/index.ts"
+  }
+}
