@@ -2,12 +2,13 @@ import cors from "@elysiajs/cors";
 import swagger from "@elysiajs/swagger";
 import Elysia from "elysia";
 import { SwaggerConfig } from "./SwaggerConfig";
+import hello from './hello';
 
 const app = new Elysia();
 
 app.use(
   cors({
-    methods: ["GET"],
+    methods: ["POST"],
     exposedHeaders: undefined,
     origin: Bun.env.CORS_ORIGIN?.split(",") ?? [],
   })
@@ -21,6 +22,19 @@ app.onError(({ code }) => ({
   success: false,
   message: `Houve um problema na sua requisição: ${code}`,
 }));
+
+app.onBeforeHandle(async ({ headers, set }) => {
+  const { authorization } = headers;
+  if (authorization != Bun.env.AUTHORIZATION_KEY) {
+    set.status = 401;
+    return {
+      success: false,
+      message: "Unauthorized",
+    };
+  }
+});
+
+app.use(hello)
 
 app.listen(Bun.env.PORT ?? 8081);
 
