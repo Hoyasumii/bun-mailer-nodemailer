@@ -1,5 +1,6 @@
 import Elysia from "elysia";
 import DTO from "./dto";
+import docs from './docs';
 import { HelloService } from "./hello.service";
 
 const service = new HelloService();
@@ -15,6 +16,7 @@ route.post(
   },
   {
     body: DTO.Body.hello,
+    detail: docs.hello
   }
 );
 
