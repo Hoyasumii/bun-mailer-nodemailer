@@ -1,5 +1,5 @@
 import type { ServiceResponse } from "@/types";
-import { resender, responseError } from "@/core";
+import { resender } from "@/core";
 import { createElement } from "react";
 import { Hello } from "@/mails";
 
