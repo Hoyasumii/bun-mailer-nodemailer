@@ -1,12 +1,10 @@
 import Elysia from "elysia";
 import DTO from "./dto";
-import docs from './docs';
+import docs from "./docs";
 import { HelloService } from "./hello.service";
 
 const service = new HelloService();
-const route = new Elysia({ prefix: "/hello" });
-
-route.post(
+const route = new Elysia({ prefix: "/hello" }).post(
   "/",
   async ({ body, set }) => {
     const { target, name } = body as { target: string; name: string };
@@ -16,7 +14,7 @@ route.post(
   },
   {
     body: DTO.Body.hello,
-    detail: docs.hello
+    detail: docs.hello,
   }
 );
 
