@@ -1,7 +1,7 @@
-# Bun Mailer
+# Bun Mailer - Nodemailer Version
 
 - O que é?
-  > Api simples feita em Elysia, no intuito de enviar emails através do Resend
+  > Api simples feita em Elysia, no intuito de enviar emails através do Nodemailer
 
 ---
 

@@ -26,17 +26,6 @@ const app = new Elysia()
     }
   })
 
-  .onBeforeHandle(async ({ headers, set }) => {
-    const { authorization } = headers;
-    if (authorization != Bun.env.AUTHORIZATION_KEY) {
-      set.status = 401;
-      return {
-        success: false,
-        message: "Unauthorized",
-      };
-    }
-  })
-
   .use(hello);
 
 if (Bun.env.ENV == "dev") {
